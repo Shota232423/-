@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>順番シミュレーター</title>
+    <!-- css -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/modal.css" />
+    <link rel="stylesheet" href="css/progress.css" />
+    <!-- モーダル -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
+    <!-- シャッフル -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.min.js"></script>
+    <!-- プログレスバー -->
+    <script src="https://rawgit.com/kimmobrunfeldt/progressbar.js/master/dist/progressbar.js"></script>
+    <script src="https://rawgit.com/kimmobrunfeldt/progressbar.js/master/dist/progressbar.min.js"></script>
+    <!-- フォント -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header>
+      <span class="title">順番シミュレーター</span>
+    </header>
+
+    <div id="explain_area">
+      <span class="sub_title">簡単に順番を決めることができる</span>
+      <p>
+        例えば発表などの順番を決めることができます。名前を入力してシャッフルボタンを押してください。
+      </p>
+      <p>
+        ※正常にアプリが動作しない場合、ブラウザのjavascriptが無効になっている可能性があります。
+      </p>
+      <p>シャッフルはランダムで行われます。</p>
+    </div>
+
+    <!-- シャッフル結果を表示 -->
+    <div id="result_title"></div>
+    <div id="result"></div>
+
+    <div id="function_area">
+      <!-- 入力フォーム -->
+      <form action="" id="form" name="form">
+        <div>
+          <input type="text" name="items" placeholder="Enter Text" />
+        </div>
+      </form>
+
+      <div class="btn_area">
+        <a id="add_button" class="btn">追加</a>
+        <a id="shuffle" class="btn" data-micromodal-trigger="modal-1">
+          シャッフル
+        </a>
+      </div>
+    </div>
+
+    <!-- モーダル -->
+    <div class="modal micromodal-slide" id="modal-1" aria-hidden="true">
+      <div class="modal__overlay" tabindex="-1">
+        <div
+          class="modal__container"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="modal-1-title"
+        >
+          <div class="modal__header">
+            <h2 class="modal__title" id="modal-1-title">
+              順番をシャッフル中...
+            </h2>
+          </div>
+          <main class="modal__content" id="modal-1-content">
+            <!-- プログレスバー -->
+            <div id="container"></div>
+          </main>
+        </div>
+      </div>
+    </div>
+
+    <!-- js読み込み -->
+    <script src="js/script.js"></script>
+    <script src="js/progress.js"></script>
+  </body>
+</html>
